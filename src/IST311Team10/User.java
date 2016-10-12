@@ -11,4 +11,29 @@ package IST311Team10;
  */
 public class User {
     
+    private String userName;
+    private String pass;
+    
+    
+    public User(String u, String p){
+        userName=u;
+        pass=p;
+    }
+    
+    public String getUserName(){
+        return userName;
+    }
+    
+    public String getPass(){
+        return pass;
+    }
+    
+    public void setUserName(String u){
+        userName=u;
+    }
+    
+    public void setPass(String p){
+        pass=p;
+    }
+            
 }
