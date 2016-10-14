@@ -36,7 +36,7 @@ public class main {
         JButton b = new JButton("Login");
         p.add(b);
         
-        p.repaint();
+        p.revalidate();
         
     }
     
