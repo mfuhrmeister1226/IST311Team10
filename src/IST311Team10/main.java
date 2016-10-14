@@ -17,27 +17,10 @@ public class main {
         f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         f.setVisible(true);
 
-        JPanel p = new JPanel();
+        LoginUI logUI = new LoginUI(); // adds login UI
         
-        f.add(p);
-        
-        JLabel l1 = new JLabel("Username:");
-        p.add(l1);
-
-        JTextField userName = new JTextField(15);
-        p.add(userName);
-
-        JLabel l2 = new JLabel("Password:");
-        p.add(l2);
-
-        JTextField password = new JTextField(15);
-        p.add(password);
-
-        JButton b = new JButton("Login");
-        p.add(b);
-        
-        p.revalidate();
-        
+        f.add(logUI);
+        f.revalidate();
     }
     
 }
