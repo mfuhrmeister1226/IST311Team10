@@ -13,7 +13,7 @@ public class main {
     public static void main(String[] args) {
         
         JFrame f = new JFrame("Credential Manager");
-        f.setSize(300,500);
+        f.setSize(300,400);
         f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         f.setVisible(true);
 
