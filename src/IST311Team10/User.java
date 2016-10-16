@@ -35,5 +35,16 @@ public class User {
     public void setPass(String p){
         pass=p;
     }
+    
+    public boolean equals(User u){
+        if(u.getUserName().equals(userName)&&
+           u.getPass().equals(pass)){
+            
+            return true;
+            
+        }
+        
+        return false;
+    }
             
 }

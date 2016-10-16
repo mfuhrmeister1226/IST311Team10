@@ -17,10 +17,16 @@ public class main {
         f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         f.setVisible(true);
 
-        LoginUI logUI = new LoginUI(); // adds login UI
+        UserDatabase userDB = new UserDatabase();
+        User u = new User("user", "pass");
+        userDB.add(u);
+        
+        LoginUI logUI = new LoginUI(userDB); // adds login UI
         
         f.add(logUI);
         f.revalidate();
+        
+        
     }
     
 }

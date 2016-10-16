@@ -14,19 +14,22 @@ import javax.swing.*;
 
 public class LoginUI extends JPanel implements ActionListener{
     
-    JLabel user;
-    JLabel pass;
-    JTextField userEntry;
-    JTextField passEntry;
-    JButton login;
+    private UserDatabase userDB;
+    private JLabel user;
+    private JLabel pass;
+    private JTextField userEntry;
+    private JTextField passEntry;
+    private JButton login;
     
-    String username;
-    String password;
+    private String username;
+    private String password;
+    private User logUser;
     
-   public LoginUI(){
+   public LoginUI(UserDatabase uDB){
        
        super();
        
+       userDB = uDB;
        user = new JLabel("Username:");
        pass = new JLabel("Password:");
        userEntry = new JTextField(15);
@@ -51,7 +54,17 @@ public class LoginUI extends JPanel implements ActionListener{
             username = userEntry.getText(); // gets username from text box
             password = passEntry.getText(); // gets password from text box
             
+            logUser = new User(username, password);
             //This is where we will check to see if login matches user database
+            
+            if(userDB.authenticate(logUser)){
+                login.setText("Success");
+            }
+            
+            else{
+                login.setText("Fail");
+            }
+            
         }
         
     }
