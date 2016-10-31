@@ -59,6 +59,10 @@ public class LoginUI extends JPanel implements ActionListener{
             
             if(userDB.authenticate(logUser)){
                 login.setText("Success");
+                
+                HomePageUI home = new HomePageUI();
+                System.out.print(home);
+                
             }
             
             else{
