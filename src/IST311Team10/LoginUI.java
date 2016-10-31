@@ -62,7 +62,6 @@ public class LoginUI extends JPanel implements ActionListener{
                 
                 HomePageUI home = new HomePageUI();
                 System.out.print(home);
-                
             }
             
             else{

@@ -13,14 +13,14 @@ import javax.swing.*;
  *
  * @author Harrison
  */
-public final class HomePageUI extends JFrame {
+public final class PasswordGenUI extends JFrame {
     
     private static final int FRAME_WIDTH = 300;
     private static final int FRAME_HEIGHT = 300;
     
-    public HomePageUI() {
+    public PasswordGenUI() {
         this.createPanel();
-        this.setTitle("Home");
+        this.setTitle("Password Generator");
         this.setSize(FRAME_WIDTH, FRAME_HEIGHT);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
@@ -31,26 +31,26 @@ public final class HomePageUI extends JFrame {
         
         JPanel panel = new JPanel();
         this.add(panel);
-        JButton viewCredentials = new JButton("View Credentials");
-        panel.add(viewCredentials);
-        JButton passGen = new JButton("Generate a Password");
-        panel.add(passGen);
+        JButton button = new JButton("Generate Password");
+        panel.add(button);
+        JLabel label = new JLabel(password);
+        panel.add(label);
         
         class ClickListener implements ActionListener {
 
             @Override
             public void actionPerformed(ActionEvent e) {
                 
-                if (e.getSource() == passGen){
-                    PasswordGenUI randPass = new PasswordGenUI();
-                    System.out.println(randPass);
-                    dispose();
+                if (e.getSource() == button){
+                    RandomGenerator pass = new RandomGenerator();
+                    String password = pass.generatePassword();
+                    label.setText(password);
                 }
             }
         
         }
         
         ActionListener listener = new ClickListener();
-        passGen.addActionListener(listener);
+        button.addActionListener(listener);
     }
 }
