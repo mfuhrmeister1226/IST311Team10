@@ -29,28 +29,34 @@ public final class PasswordGenUI extends JFrame {
     public void createPanel() {
         String password = "";
         
+        // String[] numLength = {"4", "6", "8"};
+        
         JPanel panel = new JPanel();
         this.add(panel);
-        JButton button = new JButton("Generate Password");
-        panel.add(button);
-        JLabel label = new JLabel(password);
-        panel.add(label);
+        JButton genPass = new JButton("Generate Password");
+        panel.add(genPass);
+        JLabel generatedPassword = new JLabel(password);
+        panel.add(generatedPassword);
+        // JComboBox passLength = new JComboBox(numLength);
+        // panel.add(passLength);
+        JButton storePass = new JButton("Store Password");
+        panel.add(storePass);
         
         class ClickListener implements ActionListener {
 
             @Override
             public void actionPerformed(ActionEvent e) {
                 
-                if (e.getSource() == button){
+                if(e.getSource() == genPass) {
                     RandomGenerator pass = new RandomGenerator();
                     String password = pass.generatePassword();
-                    label.setText(password);
+                    generatedPassword.setText(password);
                 }
             }
         
         }
         
         ActionListener listener = new ClickListener();
-        button.addActionListener(listener);
+        genPass.addActionListener(listener);
     }
 }

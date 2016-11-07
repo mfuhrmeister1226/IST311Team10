@@ -13,7 +13,31 @@ import java.util.Random;
  */
 public class RandomGenerator {
     
+    
     String generatePassword() {
+        
+        final String alphaNumeric = "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
+        String randPassword = "";
+        
+        for(int i = 0; i < 8; i++) {
+            char tempChar = alphaNumeric.charAt(generateNum());
+            randPassword += tempChar;
+        }
+        
+        return randPassword;
+    }
+    
+    int generateNum() {
+
+        Random rand = new Random();
+        int n = rand.nextInt(71) + 1;
+
+        return n;
+    }
+    
+    
+    // Old password generater that was used for Sprint 2 submission
+/*    String generatePassword() {
 
         String randPassword = "";
 
@@ -25,13 +49,6 @@ public class RandomGenerator {
         }
 
         return randPassword;
-    }
-
-    int generateNum() {
-
-        Random rand = new Random();
-        int n = rand.nextInt(9) + 1;
-
-        return n;
-    }
+    } */
+    
 }
