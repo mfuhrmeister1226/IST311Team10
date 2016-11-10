@@ -36,7 +36,7 @@ public final class PasswordGenUI extends JFrame {
         JButton genPass = new JButton("Generate Password");
         panel.add(genPass);
         JLabel generatedPassword = new JLabel(password);
-        panel.add(generatedPassword);
+        panel.add(generatedPassword);               
         // JComboBox passLength = new JComboBox(numLength);
         // panel.add(passLength);
         JButton storePass = new JButton("Store Password");
@@ -52,11 +52,16 @@ public final class PasswordGenUI extends JFrame {
                     String password = pass.generatePassword();
                     generatedPassword.setText(password);
                 }
+                if(e.getSource() == storePass){
+                    StoreUI storage = new StoreUI();
+                    storage.createPanel();
+                }
             }
         
         }
         
         ActionListener listener = new ClickListener();
         genPass.addActionListener(listener);
+        storePass.addActionListener(listener);
     }
 }
