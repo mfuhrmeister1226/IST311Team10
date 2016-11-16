@@ -17,13 +17,15 @@ public final class PasswordGenUI extends JFrame {
     
     private static final int FRAME_WIDTH = 300;
     private static final int FRAME_HEIGHT = 300;
+    private User user;
     
-    public PasswordGenUI() {
+    public PasswordGenUI(User u) {
         this.createPanel();
         this.setTitle("Password Generator");
         this.setSize(FRAME_WIDTH, FRAME_HEIGHT);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
+        user=u;
     }
     
     public void createPanel() {
@@ -53,7 +55,7 @@ public final class PasswordGenUI extends JFrame {
                     generatedPassword.setText(password);
                 }
                 if(e.getSource() == storePass){
-                    StoreUI storage = new StoreUI();
+                    StoreUI storage = new StoreUI(user);
                     storage.createPanel();
                 }
             }

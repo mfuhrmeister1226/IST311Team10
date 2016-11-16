@@ -1,16 +1,19 @@
 package IST311Team10;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 /**
  *
  * @author maf5723
  */
-public class main {
+public class main{
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
         
         JFrame f = new JFrame("Credential Manager");
         f.setSize(300, 150);
@@ -23,10 +26,13 @@ public class main {
         
         LoginUI logUI = new LoginUI(userDB); // adds login UI
         
+        
         f.add(logUI);
         f.revalidate();
         
         
     }
+
+   
     
 }

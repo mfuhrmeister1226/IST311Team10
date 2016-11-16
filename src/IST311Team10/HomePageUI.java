@@ -17,13 +17,15 @@ public final class HomePageUI extends JFrame {
     
     private static final int FRAME_WIDTH = 300;
     private static final int FRAME_HEIGHT = 300;
+    private User user;
     
-    public HomePageUI() {
+    public HomePageUI(User u) {
         this.createPanel();
         this.setTitle("Home");
         this.setSize(FRAME_WIDTH, FRAME_HEIGHT);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
+        user=u;
     }
     
     public void createPanel() {
@@ -42,7 +44,7 @@ public final class HomePageUI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 
                 if (e.getSource() == passGen){
-                    PasswordGenUI randPass = new PasswordGenUI();
+                    PasswordGenUI randPass = new PasswordGenUI(user);
                     System.out.println(randPass);
                     dispose();
                 }
