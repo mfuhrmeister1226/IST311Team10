@@ -23,6 +23,7 @@ public class StoreUI extends JFrame{
     private FileWriter fw;
     private BufferedWriter bw;
     private JLabel labelName;
+    private JLabel confirm;
     private JTextField labelEntry;
     private User user;
     
@@ -42,10 +43,12 @@ public class StoreUI extends JFrame{
         this.add(panel);
         labelName = new JLabel("Password:");
         labelEntry = new JTextField(15);
+        confirm = new JLabel();
         JButton store = new JButton("Store");
         panel.add(labelName);
         panel.add(labelEntry);
         panel.add(store);
+        panel.add(confirm);
         
         
         class ClickListener implements ActionListener {
@@ -67,11 +70,12 @@ public class StoreUI extends JFrame{
                     fw = new FileWriter(file.getAbsoluteFile(),true);
                     bw = new BufferedWriter(fw);
                     
-                    String s = labelName.getText();
-                    bw.write(s);
-                    bw.write("\n");
-                    bw.close();
+                    String s = labelEntry.getText();
+                    bw.write(s+"\n");
                     
+                    bw.close();
+                    store.setVisible(false);
+                    confirm.setText(s+" was stored.");
                 }
                 catch(IOException a){
                     a.printStackTrace();
